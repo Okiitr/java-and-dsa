@@ -1,11 +1,11 @@
-package com.company;
+package DSA.math;
 
 
 import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class BASIC {
+public class MATH {
     static int CountDigit(int x){
         int num = x;
         int count = 0;
@@ -190,22 +190,70 @@ public class BASIC {
     };
 
 
-    public static void Print(int n){
-        for (int i=2; i<=n; i++){
+    public static void PrintPrime(int n){
+        for (int i=2; i<=n; i++){ //0(N*SQRT(N)
             if (isPrime(i)){
                 System.out.print(" "+i);
             }
         }
     };
+    public static void sieveOfEratosthenes(int n)
+    {  // O(n loglogn)
+        // Create a boolean array "prime[0..n]" and
+        // initialize all entries it as true. A value in
+        // prime[i] will finally be false if i is Not a
+        // prime, else true.
+        boolean prime[] = new boolean[n + 1];
+        for (int i = 0; i <= n; i++)
+            prime[i] = true;
 
-    public static int itration(int x, int n){
-        while (n>0){
-            if(n%2!=0){
-                1;
+        for (int p = 2; p * p <= n; p++) {
+            // If prime[p] is not changed, then it is a
+            // prime
+            if (prime[p] == true) {
+                // Update all multiples of p greater than or
+                // equal to the square of it numbers which
+                // are multiple of p and are less than p^2
+                // are already been marked.
+                for (int i = p * p; i <= n; i += p)
+                    prime[i] = false;
             }
-            else { pass;
+        }
+
+        // Print all prime numbers
+        for (int i = 2; i <= n; i++) {
+            if (prime[i] == true)
+                System.out.print(i + " ");
         }
     };
+
+    public static int Power(int x, int n){
+        int pow =1;
+        for(int i=0;  i<n; i++){ //O(n)
+           pow = pow*x;
+        }
+        return pow;
+    };
+
+    public static int Power1(int x, int n){
+        int pow =1;
+        while (n>0){ //O(log n)
+            // or if (n&1==1)
+            if(n%2!=0){
+                pow =pow*x;
+                x=x*x;
+                n=n/2;
+
+            }else {
+                /* n must be even now
+                n = n >> 1; // n = n/2 */
+                x=x*x;
+                n=n/2;
+            }
+        }
+            return pow;
+    };
+
     public static void main(String[] args) {
         Scanner num = new Scanner(System.in);
 
@@ -223,12 +271,12 @@ public class BASIC {
         System.out.println("factorial of above 25 "+n+" is "+factorial(n));*/
 
 //      Prime number
-        System.out.println("enter a num for prime ");
+      /*  System.out.println("enter a num for prime ");
         int p = num.nextInt();
         System.out.println("your given number is prime "+IsPrime(p));
         PrimeFactors(p);
         printDivisors(p);
-        Print(p);
+        Print(p);  */
 
 //        Hcf AND lCM
 //        System.out.println("enter two number for their hcf and lcf");
@@ -237,7 +285,8 @@ public class BASIC {
 //        System.out.println("HCF of the numbers "+a+" and "+b+" = "+HCF1(a,b));
 //        System.out.println("HCF of the numbers "+a+" and "+b+" = "+HCF2(a,b));
 //        System.out.println("LCM of the numbers "+a+" and "+b+" = "+LCM1(a,b));
-
+        System.out.println("calculating power "+ Power(3,8));
+        System.out.println("calculating power "+ Power1(3,8));
     }
 }
 
