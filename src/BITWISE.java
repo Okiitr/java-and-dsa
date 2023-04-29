@@ -114,6 +114,69 @@ public class BITWISE {
 
         return 0;
     }
+    public static void TwoOddOccur( int arr2 []) {
+        int rmsb ;
+        int x = 0;
+        int y =0;
+        int xor2 = arr2[0];
+        int[] odds = new int[2];
+
+        for(int i = 1; i < arr2.length; i++){
+            xor2 = xor2 ^ arr2[i];  // value = x^y
+        }
+        rmsb =  xor2 & -xor2; //xor2 & ~(xor2-1) = xor2 & -xor2;
+
+        for (int i=0; i<arr2.length; i++){  // O(arr.length)
+            if ((arr2[i] & rmsb) > 0)
+                x = x^arr2[i];
+            else
+                y = y^arr2[i];
+        }
+        System.out.println("odd occurs are "+x+" ,"+y);
+    }
+    static void printTwoOdd(int arr[], int size)
+    {
+        /* Will hold XOR of two odd occurring elements */
+        int xor2 = arr[0];
+
+        /* Will have only single set bit of xor2 */
+        int set_bit_no;
+        int i;
+        int n = size - 2;
+        int x = 0, y = 0;
+
+	/* Get the xor of all elements in arr[].
+		The xor will basically be xor of two
+		odd occurring elements */
+        for(i = 1; i < size; i++)
+            xor2 = xor2 ^ arr[i];
+
+	/* Get one set bit in the xor2. We get
+		rightmost set bit in the following
+		line as it is easy to get */
+        set_bit_no = xor2 & ~(xor2-1);
+
+	/* Now divide elements in two sets:
+			1) The elements having the
+			corresponding bit as 1.
+			2) The elements having the
+			corresponding bit as 0. */
+        for(i = 0; i < size; i++)
+        {
+		/* XOR of first set is finally going
+			to hold one odd occurring number x */
+            if((arr[i] & set_bit_no)>0)
+                x = x ^ arr[i];
+
+		/* XOR of second set is finally going
+			to hold the other odd occurring number y */
+            else
+                y = y ^ arr[i];
+        }
+
+        System.out.println("The two ODD elements are "+
+                x + " & " + y);
+    }
     public static int getMissingNo(int a[])
     {
         int x1 = a[0];
@@ -129,28 +192,46 @@ public class BITWISE {
 
         return (x1 ^ x2); /* basic rules are x^0=x, x^x=0, x^y^z=z^y^x */
     }
+    public static void PrintPowerSet(char set[],int set_size){
+        int total_power_sets = (int) Math.pow(2,set_size);
+        for(int i = 0; i < total_power_sets; i++){
+            if(i==0)
+                System.out.print("0");
+            for (int j=0; j<set_size; j++){
+                if((i & (1<<j)) > 0) {
+                    System.out.print(set[j]);
+                }
+            }
+            System.out.println(" ");
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("hello binary ");
         Scanner num = new Scanner(System.in);
         System.out.println("Enter a number ");
         int n = num.nextInt();
-//        System.out.println("Enter value of k  ");
-//        int k = num.nextInt();
-//        System.out.println(IsBitSet(n,k));
-//        System.out.println(IsBitSet1(n,k));
-        System.out.println("total set bits in "+n+" is "+CountSetBits(n));
+        System.out.println("Enter value of k  ");
+        int k = num.nextInt();
+        System.out.println(IsBitSet(n,k));
+        System.out.println(IsBitSet1(n,k));
+       System.out.println("total set bits in "+n+" is "+CountSetBits(n));
         System.out.println("total set bits in "+n+" is "+ countSetBits1(n));
         initialize(); /* initialising the table */
         System.out.println("total set bits in "+n+" is "+ countSetBits2(n));
         System.out.println("The given number "+n+" is power of 2 "+isPowerOfTwo(n));
         System.out.println("The given number "+n+" is power of 2 "+isPowerOfTwo1(n));
 
-        int arr[] = {2,3,4,2,3,4,2,3,4,2,3};
+         int arr[] = {2,3,4,2,3,4,2,3,4,2,3};
         System.out.println("odd occurance of in arr is "+ OneOddOccur(arr));
         System.out.println("odd occurance of in arr is "+ findOdd(arr));
         int arr1[] = { 1, 2, 3, 5 };
         System.out.println("missing number in array "+arr1+" is "+getMissingNo(arr1));
+        int arr2[] = { 1,2,5,2,3,5,3,2,1,3 };
+        TwoOddOccur(arr2);
+        printTwoOdd(arr2,10);
+        char set[] ={'a','b','c'};
+        PrintPowerSet(set,3);
 
     }
 }
