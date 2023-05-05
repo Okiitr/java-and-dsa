@@ -68,6 +68,29 @@ public class BITWISE {
                 table[(n >> 16) & 0xff] +
                 table[n >> 24];
     }
+    //Function to return sum of count of set bits in the integers from 1 to n.
+    public static int countSetBits1toN(int N){
+        int bitCount = 0;
+        int powerOf2 = 1;
+
+        while (powerOf2 <= N) {
+            // Count the number of sets of numbers with a 1 in the current bit position
+            int numSets = (N + 1) / (2 * powerOf2);
+            // Calculate the number of set bits in the current bit position for all the sets
+            int setBitCount = numSets * powerOf2;
+            // Calculate the number of set bits in the remaining numbers
+            int remainingBitCount = (N + 1) % (2 * powerOf2) - powerOf2;
+            if (remainingBitCount > 0) {
+                setBitCount += remainingBitCount;
+            }
+            // Add the set bit count to the overall bit count
+            bitCount += setBitCount;
+            // Move to the next bit position
+            powerOf2 <<= 1;
+        }
+
+        return bitCount;
+    }
 
     public static boolean isPowerOfTwo1(int n){
         if (n==0){
