@@ -215,6 +215,278 @@ class ARRAYS{
         }
     }
 
+    public static int maxdifference(int [] arr){
+        int n = arr.length;
+        int max = 0;
+        for (int i=0; i<n; i++){
+            for(int j=i+1; j<n; j++){
+                max=Math.max(arr[j]-arr[i],max);  //O(N2)
+             //   max= arr[j]-arr[i]>max? arr[j]-arr[i]:max;  // using lamda function
+            }
+        }
+        return max;
+    }
+    public static int maxdifference1(int [] arr){
+        int n = arr.length;
+        int max = arr[0]-arr[1];
+        int minmum_value =arr[0];
+        for (int i=1; i<n; i++){
+            max = Math.max(max,arr[i]-minmum_value);
+            minmum_value = Math.min(arr[i],minmum_value);
+        }
+        return max;
+    }
+    public static void frequency(int []arr){
+        int freq =1;
+        int n= arr.length;
+        int i =1;
+        while(i<n){
+            while (i<n && arr[i-1]==arr[i]){
+                freq++;
+                i++;
+            }
+            System.out.println(arr[i-1]+" "+freq);
+            i++;
+            freq=1;
+        }
+        if(n==1 || arr[n-1]!=arr[n-2]){
+            System.out.println(arr[n-1]+" "+1);
+        }
+    }
+
+   public static int maxProfit(int price[], int start, int end)
+    {
+        if(end <= start)
+            return 0;
+
+        int profit = 0;
+
+        for(int i = start; i < end; i++)
+        {
+            for(int j = i + 1; j <= end; j++)
+            {
+                if(price[j] > price[i])
+                {
+                    int curr_profit = price[j] - price[i]
+                            + maxProfit(price, start, i - 1)   // claulating profit left of i
+                            + maxProfit(price, j + 1, end);  // calculatint profit right of j
+
+                    profit = Math.max(profit, curr_profit);
+                }
+            }
+        }
+
+        return profit;
+    }
+    public static int stockBuySell(int []arr){
+        int profit =0;
+        for(int i=1; i<arr.length; i++){
+            if(arr[i]>arr[i-1]){
+                profit = profit+arr[i]-arr[i-1];  //O(n) time complexity commulative profit
+            }
+        }return profit;
+    }
+    public static int maxConsicutiveOne(int []arr){
+        int ones =0;
+        int res=0;
+        for(int i = 0; i < arr.length; i++)
+        {
+            if(arr[i]==1){
+                ones++;
+            }
+            else{
+                res =Math.max(res,ones);  // before resetting count compare  previous count with max
+                ones =0;
+            }
+        }return res;
+    }
+
+    public static int trappingRainWater(int[]arr){
+        int total = 0;
+        int n = arr.length;
+
+        for(int i = 1; i < n-1; i++)  // O(N2) time complexity and O(1) SPACE COMPLEXITY
+        {
+            int lmax= arr[0];
+            for (int j = 0; j<=i; j++)
+            {
+                if( arr[j]>=lmax){
+                    lmax =arr[j];
+                }
+            }
+
+            int rmax= arr[n-1];
+            for (int j = n-1; j>=i; j--)
+            {
+                if( arr[j]>=rmax){
+                    rmax =arr[j];
+                }
+            }
+
+            total = total+Math.min(lmax,rmax)-arr[i];
+
+        }
+        return total;
+    }
+    public static int trappingRainWater1(int[]arr){
+        int total = 0;
+        int n = arr.length;
+        int[] lmax = new int[n];
+        int[] rmax = new int[n];
+
+        lmax[0]= arr[0];
+        for (int j = 1; j<n; j++)
+        {
+            if( arr[j]>=lmax[j-1]){  // find lmax and rmax separately
+                lmax[j] =arr[j];
+            }
+            else {
+                lmax[j]=lmax[j-1];
+            }
+        }
+        System.out.println(Arrays.toString(lmax));
+
+        rmax[n-1]= arr[n-1];
+        for (int j = n-2; j>=0; j--)
+        {
+            rmax[j] = Math.max(arr[j], rmax[j + 1]);
+        }
+        System.out.println(Arrays.toString(rmax));
+
+        for(int i = 1; i < n-1; i++)  // O(N) time complexity and O(n) SPACE COMPLEXITY
+        {
+            total = total+Math.min(lmax[i],rmax[i])-arr[i];
+
+        }
+        return total;
+    }
+
+    public static int maxSumOfSubarrys(int []arr){
+        int result=arr[0];
+        int curr_max=0;
+        for (int i =1; i<arr.length; i++){
+            curr_max = Math.max(curr_max+arr[i],arr[i]); // sum of upto that element or that element itself
+            result=Math.max(result,curr_max);
+        }return result;
+    }
+    public static int maxSumOfCircularSubArrays(int arr[])
+    {   int n = arr.length;
+        int max_normal = maxSumOfSubarrys(arr);
+
+        if(max_normal < 0)
+            return max_normal;
+
+        int arr_sum = 0;
+
+        for(int i = 0; i < n; i++)
+        {
+            arr_sum += arr[i]; // total sum of the array
+
+            arr[i] = -arr[i];  //  changing the sign of element so that we can get the min  sum of the sub arrar
+        }
+
+        // max sum of circular array is array sum - min sum of sub array
+        int max_circular = arr_sum + maxSumOfSubarrys(arr);  // after changing the sign maxSumOfSubarrys will give min value in negetive
+
+        return Math.max(max_circular, max_normal);
+    }
+    static int maxSumOfCircularSubArrays1(int arr[])
+    {  // nevie solution n2
+        int n = arr.length;
+        int res = arr[0];
+
+        for(int i = 0; i < n; i++)
+        {
+            int curr_max = arr[i];
+            int curr_sum = arr[i];
+
+            for(int j = 1; j < n; j++)
+            {
+                int index = (i + j) % n;  // to get all circular sub array
+
+                curr_sum += arr[index];
+
+                curr_max = Math.max(curr_max, curr_sum);
+            }
+
+            res = Math.max(res, curr_max);
+        }
+        return res;
+    }
+    public static int longestOddEvenSubArray(int[]arr){
+        int len=1;
+        int res=1;
+        for(int i = 1; i < arr.length; i++){
+            if((arr[i-1]%2==1 && arr[i]%2==0) || (arr[i-1]%2==0 && arr[i]%2==1)){
+                len++;
+            }
+            else{
+                res=Math.max(len,res);
+                len=1;
+            }
+        }
+        return res;
+    }
+    public static boolean isEqualibrium(int [] arr){
+        int n = arr.length;
+        int sum_left;
+        int sum_right;
+
+        for( int i = 0; i < n; i++){
+            sum_left = 0;
+            sum_right = 0;
+            for ( int j = 0; j < i; j++){
+                sum_left+=arr[j];
+            }
+            for ( int k = i+1; k <n ; k++){
+                sum_right+=arr[k];
+            }
+            if(sum_right==sum_left)
+                return true;
+        } return false;
+    }
+    public static int majorityElement(int []arr){
+        int count = 1;
+        for (int i = 0; i < arr.length; i++){
+            count=1;
+            for (int j = i+1; j < arr.length; j++){
+                if ( arr[i] == arr[j]){
+                    count++;
+                }
+                if (count>(arr.length/2)){
+                    return arr[i];
+                }
+            }
+
+        }
+        return -1;
+    }
+    public static int majorityElement1(int []arr){  //Moore’s Voting Algorithm: (O(n)
+        int count = 1;
+        int n = arr.length;
+        int res =0;
+        for (int i = 1; i < arr.length; i++){
+                if ( arr[i] == arr[res]){
+                    count++;
+                }
+                else{
+                    count--;}
+                if (count==0){   // find the candidate for Majority */
+                    res =i;
+                    count=1;
+                }
+            }
+        count = 0;
+
+        for(int i = 0; i < n; i++)
+            if(arr[res] == arr[i])
+                count++;  //
+
+        if(count <= n /2)  // check if the candidate occurs more than n/2 times *
+            res = -1;
+
+        return arr[res];
+    }
     public static void main(String[] args) {
       /*  int [] arr1 = {11,5,31,45, };
         System.out.println(Arrays.toString(insertingEnd(arr1, 50)));
@@ -251,10 +523,38 @@ class ARRAYS{
         System.out.println(Arrays.toString(leftRotateD2(arr8,3)));
         int [] arr9={10,5,30,15};
         System.out.println(Arrays.toString(leftRotateD1(arr9,3)));
-        System.out.println(Arrays.toString(leftRotateD3(arr9,2))); */
+        System.out.println(Arrays.toString(leftRotateD3(arr9,2)));
+
         int [] arr10={10,5,40,30,15,5,7};
         leader(arr10);
         leader2(arr10);
+        System.out.println(maxdifference(arr10));
+        System.out.println(maxdifference1(arr10));
+
+        int [] arr11={5,5,5,10,15,15,7};
+        frequency(arr11);
+
+        int []arr12 ={1,5,3,8,12};
+        System.out.println(stockBuySell(arr12));
+        System.out.println(maxProfit(arr12,0,4));
+
+        int []arr13 ={0,1,1,1,1,0,1,1,0,1};
+        System.out.println(maxConsicutiveOne(arr13));
+
+        int []arr14={4,1,3,2,6};
+        System.out.println(trappingRainWater(arr14));
+        System.out.println(trappingRainWater1(arr14)); */
+
+        int []arr14={1,2,3,-8,7,4,-1,2,3};
+        System.out.println(maxSumOfSubarrys(arr14));
+        System.out.println(maxSumOfCircularSubArrays(arr14));
+        System.out.println(maxSumOfCircularSubArrays1(arr14));
+        System.out.println(longestOddEvenSubArray(arr14));
+
+        int []arr15={3,1,2,2,3,3,3,3};
+        System.out.println(isEqualibrium(arr15));
+        System.out.println(majorityElement(arr15));
+        System.out.println(majorityElement1(arr15));
 
 
     }

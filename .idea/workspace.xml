@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="Arrays started">
+    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="leader, rotation of array, moving zero to the end">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ARRAYS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ARRAYS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683314154108</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="leader, rotation of array, moving zero to the end">
+      <created>1683566818981</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683566818981</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,6 +223,7 @@
     <MESSAGE value="Bit Masic" />
     <MESSAGE value="Recursion and tail recursion" />
     <MESSAGE value="Arrays started" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arrays started" />
+    <MESSAGE value="leader, rotation of array, moving zero to the end" />
+    <option name="LAST_COMMIT_MESSAGE" value="leader, rotation of array, moving zero to the end" />
   </component>
 </project>
