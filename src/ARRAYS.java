@@ -427,24 +427,7 @@ class ARRAYS{
         }
         return res;
     }
-    public static boolean isEqualibrium(int [] arr){
-        int n = arr.length;
-        int sum_left;
-        int sum_right;
 
-        for( int i = 0; i < n; i++){
-            sum_left = 0;
-            sum_right = 0;
-            for ( int j = 0; j < i; j++){
-                sum_left+=arr[j];
-            }
-            for ( int k = i+1; k <n ; k++){
-                sum_right+=arr[k];
-            }
-            if(sum_right==sum_left)
-                return true;
-        } return false;
-    }
     public static int majorityElement(int []arr){
         int count = 1;
         for (int i = 0; i < arr.length; i++){
@@ -487,8 +470,196 @@ class ARRAYS{
 
         return arr[res];
     }
+    public static void minConsecutiveFlip(int [] binary_arr){
+        int n = binary_arr.length;
+        for (int i = 1; i < n; i++){
+            if (binary_arr[i]!=binary_arr[i-1]){ // checking the where the diff occurs
+                if(binary_arr[i]!=binary_arr[0]){ // always start flipping the second group  becoz 2nd group occurs either less or equal time
+                    System.out.print("from "+i+" to ");
+                }
+                else
+                {
+                    System.out.println(i-1);
+                }
+            }
+            if(binary_arr[n - 1] != binary_arr[0])  // to handle the if the filp element in the last
+                System.out.println(n-1);
+        }
+    }
+
+    public static int naiveSlidingWindow( int []arr, int k){
+        int n = arr.length;
+        int curr_max;
+        int res = 0;
+        for (int i=0; i<=n-k; i++){  //O(N*K)
+            curr_max =0;
+            for (int j=i; j<i+k; j++){
+                curr_max+=arr[j];
+            }
+            res = Math.max(res,curr_max );
+
+        }
+        return res;
+    }
+    public static int slidingWindow( int []arr, int k){
+        int n = arr.length;
+        int previous_window=0;
+        int curr_window=0;
+        int res = 0;
+        for (int i=0; i<k; i++) {  // creating the window of k element
+            previous_window += arr[i];
+        }
+        res= previous_window;
+        for (int i=1; i<=n-k; i++) {// using first window and making curr_window (use multiply , xor, +- , of k element
+            curr_window =previous_window-arr[i-1]+arr[i+k-1];
+            previous_window = curr_window;
+            res = Math.max(res,curr_window );
+        }
+
+        return res;
+    }
+
+    public static boolean slideWindowIsGivenSumInSubarrys(int []arr, int sum){ //postive array
+        int curr_max=0;
+        int s=0;
+        for (int e =0; e<arr.length; e++){
+            curr_max+=arr[e];// adding item to window
+            while (sum<curr_max){// idea is if the curr_max is greater then sum then we change size of our window
+                curr_max-=arr[s]; // rmoving item from the window
+                s++;
+            }
+            if(sum==curr_max){
+                return true;
+            }
+        }return false;
+    }
+    public static boolean isGivenSumInSubarrys(int []arr, int sum){
+        int curr_max=0;
+        for (int j =0; j<arr.length; j++){
+            curr_max=0;
+            for (int i =j; i<arr.length; i++){
+            curr_max+=arr[i];
+            if( sum==curr_max){
+                return true;
+            }
+            }
+        }return false;
+    }
+    public static int getSum(int []arr, int s, int e){
+        int sum=0;
+        for (int i=s; i<=e; i++){
+            sum+=arr[i];
+        }return sum;
+    }
+    public static int getSumPrefixSum(int []arr, int s, int e){
+        int [] pSum= new int[arr.length];
+        pSum[0]=arr[0];
+        for (int i=1; i<arr.length; i++){
+            pSum[i]=arr[i]+pSum[i-1];
+        }
+        if (s==0){
+            return pSum[e];
+        }
+        else {return pSum[e]-pSum[s-1];}
+    }
+    public static int getWSumPrefixSum(int []arr, int s, int e){
+        int [] pwSum= new int[arr.length];
+        pwSum[0]=arr[0];
+        for (int i=1; i<arr.length; i++){
+            pwSum[i]=(arr[i]*(i+1))+pwSum[i-1];
+        }
+        if (s==0){
+            return pwSum[e];
+        }
+        else {return pwSum[e]-pwSum[s-1];}
+    }
+    public static boolean isEqualibrium(int [] arr){// O(n2)
+        int n = arr.length;
+        int sum_left;
+        int sum_right;
+
+        for( int i = 0; i < n; i++){
+            sum_left = 0;
+            sum_right = 0;
+            for ( int j = 0; j < i; j++){
+                sum_left+=arr[j];
+            }
+            for ( int k = i+1; k <n ; k++){
+                sum_right+=arr[k];
+            }
+            if(sum_right==sum_left)
+                return true;
+        } return false;
+    }
+    public static boolean isEqualibrium1(int [] arr){// O(n) time and O(1)
+        int n = arr.length;
+        int sum_left;
+        int sum_right=0;
+
+        for (int j : arr) {
+            sum_right += j;
+        }
+        sum_left=0;
+        for (int j : arr) {
+            sum_right -= j;
+            if (sum_right == sum_left)
+                return true;
+            sum_left += j;
+        }
+        return false;
+    }
+    public static boolean isEqualibriumPrefixSum(int [] arr){ //O(n) time O(n) space
+        int n = arr.length;
+        int [] prefixSum= new int[n];
+        prefixSum[0]=arr[0];
+        for (int i=1; i<n; i++){
+            prefixSum[i]=arr[i]+prefixSum[i-1];
+        }
+        int [] suffixSum= new int[n];
+        suffixSum[n-1]=arr[n-1];
+        for (int i=n-2; i>=0; i--){
+            suffixSum[i]=arr[i]+suffixSum[i+1];
+        }
+
+        for( int i = 1; i < n-1; i++){
+            if(prefixSum[i-1]==suffixSum[i+1])
+                return true;
+        } return false;
+    }
+
+    public static int maximumOccurredElement(int[] L, int[] R,
+                                      int n)
+    {
+        // Initialising all element of array to 0.
+        int[] arr = new int[101];
+
+        // Adding +1 at Li index and
+        // subtracting 1 at Ri index.
+        int maxi = -1;
+        for (int i = 0; i < n; i++) {
+            arr[L[i]] += 1;
+            arr[R[i] + 1] -= 1;
+            if (R[i] > maxi) {
+                maxi = R[i];
+            }
+        }
+
+        // Finding prefix sum and index
+        // having maximum prefix sum.
+        int msum = arr[0];
+        int ind = 0;
+        for (int i = 1; i < maxi + 1; i++) {
+            arr[i] += arr[i - 1];
+            if (msum < arr[i]) {
+                msum = arr[i];
+                ind = i;
+            }
+        }
+
+        return ind;
+    }
     public static void main(String[] args) {
-      /*  int [] arr1 = {11,5,31,45, };
+        int [] arr1 = {11,5,31,45, };
         System.out.println(Arrays.toString(insertingEnd(arr1, 50)));
         int [] arr2 = new int[6];
 
@@ -543,7 +714,7 @@ class ARRAYS{
 
         int []arr14={4,1,3,2,6};
         System.out.println(trappingRainWater(arr14));
-        System.out.println(trappingRainWater1(arr14)); */
+        System.out.println(trappingRainWater1(arr14));
 
         int []arr14={1,2,3,-8,7,4,-1,2,3};
         System.out.println(maxSumOfSubarrys(arr14));
@@ -552,9 +723,30 @@ class ARRAYS{
         System.out.println(longestOddEvenSubArray(arr14));
 
         int []arr15={3,1,2,2,3,3,3,3};
-        System.out.println(isEqualibrium(arr15));
         System.out.println(majorityElement(arr15));
         System.out.println(majorityElement1(arr15));
+
+        int []arr16={1,1,0,0,0,1,1,0,0,1,1,0,0,1};
+        minConsecutiveFlip(arr16);
+        int []arr17={1,8,30,-5,20,7};
+        System.out.println(naiveSlidingWindow(arr17,3));
+        System.out.println(slidingWindow(arr17,4));
+        int []arr18={1,8,3,5,20,7};
+        System.out.println(isGivenSumInSubarrys(arr18,35));
+        System.out.println(slideWindowIsGivenSumInSubarrys(arr18,35));
+        System.out.println(getSum(arr18,1,3));
+        System.out.println(getSumPrefixSum(arr18,1,3));
+        System.out.println(getWSumPrefixSum(arr18,2,3));
+
+        int []arr19={4,1,2,2,3};
+        System.out.println(isEqualibrium(arr19));
+        System.out.println(isEqualibrium1(arr19));
+        System.out.println(isEqualibriumPrefixSum(arr19));
+
+        int[] L = { 1, 4, 9, 13, 21 };
+        int[] R = { 15, 8, 12, 20, 30 };
+        int n = L.length;
+        System.out.println(maximumOccurredElement(L, R, n));
 
 
     }

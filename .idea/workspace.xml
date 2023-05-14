@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="leader, rotation of array, moving zero to the end">
+    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ARRAYS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ARRAYS.java" afterDir="false" />
     </list>
@@ -203,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683566818981</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium">
+      <created>1683915065404</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683915065404</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +231,7 @@
     <MESSAGE value="Recursion and tail recursion" />
     <MESSAGE value="Arrays started" />
     <MESSAGE value="leader, rotation of array, moving zero to the end" />
-    <option name="LAST_COMMIT_MESSAGE" value="leader, rotation of array, moving zero to the end" />
+    <MESSAGE value="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium" />
+    <option name="LAST_COMMIT_MESSAGE" value="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium" />
   </component>
 </project>
