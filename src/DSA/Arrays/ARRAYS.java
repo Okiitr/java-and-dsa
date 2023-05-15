@@ -716,11 +716,11 @@ class ARRAYS{
         System.out.println(trappingRainWater(arr14));
         System.out.println(trappingRainWater1(arr14));
 
-        int []arr14={1,2,3,-8,7,4,-1,2,3};
-        System.out.println(maxSumOfSubarrys(arr14));
-        System.out.println(maxSumOfCircularSubArrays(arr14));
-        System.out.println(maxSumOfCircularSubArrays1(arr14));
-        System.out.println(longestOddEvenSubArray(arr14));
+        int []arr114={1,2,3,-8,7,4,-1,2,3};
+        System.out.println(maxSumOfSubarrys(arr114));
+        System.out.println(maxSumOfCircularSubArrays(arr114));
+        System.out.println(maxSumOfCircularSubArrays1(arr114));
+        System.out.println(longestOddEvenSubArray(arr114));
 
         int []arr15={3,1,2,2,3,3,3,3};
         System.out.println(majorityElement(arr15));
