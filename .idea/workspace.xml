@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium">
+    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="Search started , biny search iterative and recursive , first occurrence and last occurrence">
+      <change afterPath="$PROJECT_DIR$/src/SORTING.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ARRAYS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ARRAYS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DSA/Arrays/ARRAYS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSA/Arrays/ARRAYS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RECURSION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RECURSION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SEARCH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SEARCH.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +44,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ARRAYS">
+  <component name="RunManager" selected="Application.SORTING">
     <configuration name="ARRAYS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DSA.Arrays.ARRAYS" />
       <module name="first java" />
@@ -68,32 +71,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DSA.math.BASIC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.math.BASIC" />
-      <module name="first java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DSA.math.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MATH" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.math.MATH" />
-      <module name="first java" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DSA.math.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RECURSION" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DSA.Recursion.RECURSION" />
       <module name="first java" />
@@ -107,13 +84,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SEARCH" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Search.SEARCH" />
+      <module name="first java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DSA.Search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SORTING" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Sorting.SORTING" />
+      <module name="first java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DSA.Sorting.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ARRAYS" />
+        <item itemvalue="Application.SORTING" />
+        <item itemvalue="Application.SEARCH" />
         <item itemvalue="Application.RECURSION" />
+        <item itemvalue="Application.ARRAYS" />
         <item itemvalue="Application.BITWISE" />
-        <item itemvalue="Application.MATH" />
-        <item itemvalue="Application.DSA.math.BASIC" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683915065404</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Array completed.">
+      <created>1684080600557</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1684080600557</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Search started , biny search iterative and recursive , first occurrence and last occurrence">
+      <created>1684174499413</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1684174499413</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +249,8 @@
     <MESSAGE value="Arrays started" />
     <MESSAGE value="leader, rotation of array, moving zero to the end" />
     <MESSAGE value="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium" />
-    <option name="LAST_COMMIT_MESSAGE" value="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium" />
+    <MESSAGE value="Array completed." />
+    <MESSAGE value="Search started , biny search iterative and recursive , first occurrence and last occurrence" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search started , biny search iterative and recursive , first occurrence and last occurrence" />
   </component>
 </project>

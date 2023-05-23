@@ -27,6 +27,20 @@ public class RECURSION {
         System.out.println(josephus1(5,3));
         System.out.println(josephus0(5,3));
         System.out.println(myJos(5,3));
+        System.out.println(powerOfItsReverse(12,21));
+    }
+    public static long powerOfItsReverse(int N,int R)
+    {    long MOD =1000000007;
+        if (R == 0)
+            return 1;
+        long temp = powerOfItsReverse(N, R / 2) % MOD;
+        long result = (temp * temp) % MOD; // from end we start squring (so that we can cover all powers)
+
+        if (R % 2 == 0)
+            return (long) result;
+        else
+            return (long) ((N * result) % MOD);
+
     }
 
     // JOSEPHUS PROBLEM

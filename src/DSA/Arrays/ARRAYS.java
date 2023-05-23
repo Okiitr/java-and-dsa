@@ -1,5 +1,6 @@
 package DSA.Arrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 class ARRAYS{
@@ -285,6 +286,43 @@ class ARRAYS{
                 profit = profit+arr[i]-arr[i-1];  //O(n) time complexity commulative profit
             }
         }return profit;
+    }
+
+    // this method will give us the pair of buy sell days;
+    public static ArrayList<ArrayList<Integer>> stockBuySell(int[] prices, int n) {
+        ArrayList<ArrayList<Integer>> buySellPairs = new ArrayList<>();
+
+        int buyDay = 0;
+        int sellDay = 0;
+        boolean bought = false;
+
+        for (int i = 1; i < n; i++) {
+            if (prices[i] > prices[i - 1]) {
+                if (!bought) {
+                    buyDay = i - 1;
+                    bought = true;
+                }
+            } else {
+                if (bought) {
+                    sellDay = i - 1;
+                    ArrayList<Integer> pair = new ArrayList<>();
+                    pair.add(buyDay);
+                    pair.add(sellDay);
+                    buySellPairs.add(pair);
+                    bought = false;
+                }
+            }
+        }
+
+        if (bought) {
+            sellDay = n - 1;
+            ArrayList<Integer> pair = new ArrayList<>();
+            pair.add(buyDay);
+            pair.add(sellDay);
+            buySellPairs.add(pair);
+        }
+
+        return buySellPairs;
     }
     public static int maxConsicutiveOne(int []arr){
         int ones =0;
