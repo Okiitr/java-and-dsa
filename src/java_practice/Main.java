@@ -1,6 +1,5 @@
-package com.company;
+package java_practice;
 
-import java.util.Scanner;
 class Student{
     int roll;
     String name;

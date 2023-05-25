@@ -1,4 +1,4 @@
-package com.company;
+package java_practice;
 
 import java.util.Scanner;
 //java loops and function here used and recursion method also

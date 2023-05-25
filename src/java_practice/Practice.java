@@ -1,4 +1,4 @@
-package com.company;
+package java_practice;
 class MyClass{
     int id;
     String name;

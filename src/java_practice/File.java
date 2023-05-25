@@ -1,4 +1,4 @@
-package com.company;
+package java_practice;
 import java.util.Scanner;
 
 public class File {
