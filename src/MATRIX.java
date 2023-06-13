@@ -8,18 +8,20 @@ class MATRIX{
         printMatrix(matrix);
         boundaryTraversal(matrix);
         rotate90AntiClock(matrix);
-        printMatrix(matrix);*/
+        printMatrix(matrix);
 
         int [][] arr = {{1,1},{2,2}};
         int [][] brr = {{1,2,3},{1,1,1}};
-        printMatrix(multiplicationOfMatrix(arr,brr));
+        printMatrix(multiplicationOfMatrix(arr,brr));*/
 
-        int a[][] = {{1, 2, 3, 4},
+        int a[][] = {{1, 1, 1, 4},
             {5, 6, 7, 8},
             {6, 10, 11, 12},
             {13, 14, 15, 16}};
-        spiralTraversal(a);
-        System.out.println(findElementInRow_ColSortedMatrix(a,9));
+        System.out.println(determinantOfMatrix(a,4));
+
+//        spiralTraversal(a);
+//        System.out.println(findElementInRow_ColSortedMatrix(a,9));
     }
 
     public static void printMatrix(int [] [] arr){
@@ -176,5 +178,40 @@ class MATRIX{
         }
 
         return false;
+    }
+
+    static int determinantOfMatrix(int [][] mat, int n)
+    {
+        int  det = 0;
+        if(n ==1){
+            det = mat[0][0];
+            return det;
+        }
+        if(n == 2){
+            det = ((mat[0][0]*mat[1][1])-(mat[0][1]*mat[1][0]));
+            return det;
+        }
+        int sign = 1;
+        for (int i = 0 ; i<n; i++){
+
+            int  [][] CofactorMatrix = getCofactorMatrix(mat,i,n);
+
+            det += mat[0][i] * sign * determinantOfMatrix(CofactorMatrix,n-1);
+            sign = -sign;
+        }
+        return det;
+    }
+    public static int [][] getCofactorMatrix(int [][] mat , int j , int n){
+        int [] [] cofactor = new int [n-1][n-1];
+        for(int i  = 1 ; i<n; i++){
+            int index =0;
+            for (int k = 0 ; k <n; k++){
+                if (k!=j){
+                    cofactor[i-1][index++] = mat [i][k];
+                }
+
+            }
+        }
+        return cofactor;
     }
 }

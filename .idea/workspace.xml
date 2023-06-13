@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="Search started , biny search iterative and recursive , first occurrence and last occurrence">
-      <change afterPath="$PROJECT_DIR$/src/SORTING.java" afterDir="false" />
+    <list default="true" id="3cc8d13b-b7f0-42b3-967c-8e7d5e1a689e" name="Changes" comment="sorting almost complete">
+      <change afterPath="$PROJECT_DIR$/src/HASHING.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LINKEDLIST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DSA/Arrays/ARRAYS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DSA/Arrays/ARRAYS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RECURSION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RECURSION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SEARCH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SEARCH.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MATRIX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MATRIX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SORTING.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SORTING.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +44,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.SORTING">
-    <configuration name="ARRAYS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.Arrays.ARRAYS" />
+  <component name="RunManager" selected="Application.HASHING (2)">
+    <configuration name="HASHING (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Hashing.HASHING" />
       <module name="first java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DSA.Arrays.*" />
+          <option name="PATTERN" value="DSA.Hashing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -58,12 +58,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BITWISE" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.Binary.BITWISE" />
+    <configuration name="HASHING (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Hashing.HASHING" />
       <module name="first java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DSA.Binary.*" />
+          <option name="PATTERN" value="DSA.Hashing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,12 +71,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RECURSION" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.Recursion.RECURSION" />
+    <configuration name="HASHING" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Hashing.HASHING" />
       <module name="first java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DSA.Recursion.*" />
+          <option name="PATTERN" value="DSA.Hashing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,12 +84,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SEARCH" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.Search.SEARCH" />
+    <configuration name="LINKEDLIST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Linkedlist.LINKEDLIST" />
       <module name="first java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DSA.Search.*" />
+          <option name="PATTERN" value="DSA.Linkedlist.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SORTING" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DSA.Sorting.SORTING" />
+    <configuration name="MATRIX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DSA.Matrix.MATRIX" />
       <module name="first java" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="DSA.Sorting.*" />
+          <option name="PATTERN" value="DSA.Matrix.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,11 +112,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SORTING" />
-        <item itemvalue="Application.SEARCH" />
-        <item itemvalue="Application.RECURSION" />
-        <item itemvalue="Application.ARRAYS" />
-        <item itemvalue="Application.BITWISE" />
+        <item itemvalue="Application.HASHING (2)" />
+        <item itemvalue="Application.LINKEDLIST" />
+        <item itemvalue="Application.HASHING (1)" />
+        <item itemvalue="Application.HASHING" />
+        <item itemvalue="Application.MATRIX" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +227,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684174499413</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Sorting started inbuilt methods for sorting">
+      <created>1684865724120</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1684865724120</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Matrix started in parallel of sorting">
+      <created>1685038315027</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685038315027</updated>
+    </task>
+    <task id="LOCAL-00017" summary="sorting almost complete">
+      <created>1686676843905</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686676843905</updated>
+    </task>
+    <task id="LOCAL-00018" summary="sorting almost complete">
+      <created>1686676968001</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686676968001</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +279,14 @@
     <MESSAGE value="Frequency , stock sale and buy, trapping rain water,  maxSumOfCircularSubArrays, isEqualibrium" />
     <MESSAGE value="Array completed." />
     <MESSAGE value="Search started , biny search iterative and recursive , first occurrence and last occurrence" />
-    <option name="LAST_COMMIT_MESSAGE" value="Search started , biny search iterative and recursive , first occurrence and last occurrence" />
+    <MESSAGE value="Sorting started inbuilt methods for sorting" />
+    <MESSAGE value="Matrix started in parallel of sorting" />
+    <MESSAGE value="sorting almost complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorting almost complete" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/first_java$MATRIX.ic" NAME="MATRIX Coverage Results" MODIFIED="1685035415692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>DSA.Matrix.*</FILTER>
+    </SUITE>
   </component>
 </project>
